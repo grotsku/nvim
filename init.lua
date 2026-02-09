@@ -13,6 +13,7 @@ vim.g.start_time = vim.fn.reltime()
 vim.loader.enable() --  SPEEEEEEEEEEED 
 vim.call('plug#begin')
 
+Plug('catppuccin/nvim', { ['as'] = 'catppuccin' }) --colorscheme
 Plug('nvim-lualine/lualine.nvim') --statusline
 Plug('nvim-tree/nvim-web-devicons') --pretty icons
 Plug('folke/which-key.nvim') --mappings popup
@@ -36,3 +37,5 @@ require("plugins.gitsigns")
 require("plugins.lualine")
 require("plugins.nvim-lint")
 require("plugins.render-markdown")
+
+vim.cmd.colorscheme "catppuccin"
