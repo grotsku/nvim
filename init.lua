@@ -6,6 +6,12 @@ if vim.fn.empty(vim.fn.glob(data_dir .. '/site/autoload/plug.vim')) == 1 then
 	vim.cmd('autocmd VimEnter * PlugInstall --sync | source $MYVIMRC')
 end
 
+-- set tab size
+vim.o.tabstop = 4 -- A TAB character looks like 4 spaces
+vim.o.expandtab = true -- Pressing the TAB key will insert spaces instead of a TAB character
+vim.o.softtabstop = 4 -- Number of spaces inserted instead of a TAB character
+vim.o.shiftwidth = 4 -- Number of spaces inserted when indenting
+
 local vim = vim
 local Plug = vim.fn['plug#']
 
@@ -14,6 +20,7 @@ vim.loader.enable() --  SPEEEEEEEEEEED 
 vim.call('plug#begin')
 
 Plug('catppuccin/nvim', { ['as'] = 'catppuccin' }) --colorscheme
+Plug('ellisonleao/gruvbox.nvim', { ['as'] = 'gruvbox' }) --colorscheme 2
 Plug('nvim-lualine/lualine.nvim') --statusline
 Plug('nvim-tree/nvim-web-devicons') --pretty icons
 Plug('folke/which-key.nvim') --mappings popup
@@ -29,7 +36,8 @@ Plug('MeanderingProgrammer/render-markdown.nvim') --render md inline
 vim.call('plug#end')
 
 -- mappings from external file
-require("configs.mappings")
+require("config.theme")
+require("config.mappings")
 
 require("plugins.fzf-lua")
 require("plugins.nvim-tree")
@@ -37,5 +45,4 @@ require("plugins.gitsigns")
 require("plugins.lualine")
 require("plugins.nvim-lint")
 require("plugins.render-markdown")
-
-vim.cmd.colorscheme "catppuccin"
+require("plugins.colorscheme")

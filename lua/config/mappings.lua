@@ -40,3 +40,4 @@ map("n", "<leader>Ff", ":lua require('fzf-lua').files({ cwd = '..' })<CR>") --se
 
 -- misc
 map("n", "<leader>t", ":NvimTreeToggle<CR>") --open file explorer
+map("n", "<leader>p", switch_theme) --cycle themes
